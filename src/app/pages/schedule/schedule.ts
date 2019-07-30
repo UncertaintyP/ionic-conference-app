@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, IonList, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import { AlertController, IonList, LoadingController, ModalController, ToastController, NavController } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 import { ConferenceData } from '../../providers/conference-data';
@@ -28,6 +28,7 @@ export class SchedulePage implements OnInit {
     public confData: ConferenceData,
     public loadingCtrl: LoadingController,
     public modalCtrl: ModalController,
+    public navCtrl: NavController,
     public router: Router,
     public toastCtrl: ToastController,
     public user: UserData
@@ -35,6 +36,7 @@ export class SchedulePage implements OnInit {
 
   ngOnInit() {
     this.updateSchedule();
+    this.navCtrl.navigateForward(`/app/tabs/schedule/session/5`);
   }
 
   updateSchedule() {
